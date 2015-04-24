@@ -5,9 +5,15 @@
     [org.jfree.chart JFreeChart]))
 
 
+;; bar-chart example borrowed from: http://www.tutorialspoint.com/jfreechart/jfreechart_bar_chart.htm
+
+
 (def bar-data [{:brand "fiat" :speed 1.0 :userrating 3.0 :mileage  5.0 :safety 5.0}
                {:brand "audi" :speed 5.0 :userrating 6.0 :mileage 10.0 :safety 4.0}
                {:brand "ford" :speed 4.0 :userrating 2.0 :mileage  3.0 :safety 6.0}])
+
+
+;; line-chart example borrowed from: http://www.tutorialspoint.com/jfreechart/jfreechart_line_chart.htm
 
 
 (def line-data [{:group "schools" "1970" 15}
@@ -36,6 +42,9 @@
                                                                        :value-title "Schools Count"}))))))
 
 
+;; pie-chart example borrowed from: http://www.tutorialspoint.com/jfreechart/jfreechart_pie_chart.htm
+
+
 (def pie-data [{"iPhone 5s" 20}
                {"Samsung Grand" 20}
                {"MotoG" 40}
@@ -51,6 +60,9 @@
     (is (instance? JFreeChart (-> pie-data
                                 (c/make-pie-dataset)
                                 (c/make-pie-chart-3d "Mobile sales" {}))))))
+
+
+;; time-series example adapted from: http://www.tutorialspoint.com/jfreechart/jfreechart_timeseries_chart.htm
 
 
 (def time-series-data [{1295384773401 45}  ; data spaced out by 1000ms so that it can fit in as :second
