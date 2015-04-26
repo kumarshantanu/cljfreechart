@@ -1,4 +1,4 @@
-(defproject cljfreechart "0.1.0"
+(defproject cljfreechart "0.1.1"
   :description "Clojure wrapper for the JFreeChart library"
   :url "https://github.com/kumarshantanu/cljfreechart"
   :license {:name "Eclipse Public License"
