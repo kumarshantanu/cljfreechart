@@ -70,7 +70,7 @@
     (let [mktu (fn ^RegularTimePeriod [x]
                  (cond
                    (instance? RegularTimePeriod x) x
-                   (integer? x)                    (let [^Date d (Date. x)]
+                   (integer? x)                    (let [^Date d (Date. ^long x)]
                                                      (condp = ts-unit
                                                        :millis (Millisecond. d)
                                                        :second (Second. d)
@@ -85,7 +85,7 @@
           ^TimeSeries series (TimeSeries. ts-name)]
       (doseq [each-map chart-data
               [k v] (seq each-map)]
-        (.add series (mktu k) (double v)))
+        (.add series ^RegularTimePeriod (mktu k) (double v)))
       (TimeSeriesCollection. series))))
 
 
