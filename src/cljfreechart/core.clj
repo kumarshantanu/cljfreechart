@@ -134,12 +134,6 @@
   (make-category-chart dataset title (assoc options :chart-type :bar-chart)))
 
 
-(defn make-bar-chart-3d
-  "Shortcut to make-category-chart (with {:chart-type :bar-chart-3d} in options.)"
-  ^JFreeChart [^CategoryDataset dataset title options]
-  (make-category-chart dataset title (assoc options :chart-type :bar-chart-3d)))
-
-
 (defn make-line-chart
   "Shortcut to make-category-chart (with {:chart-type :line-chart} in options.)"
   ^JFreeChart [^CategoryDataset dataset title options]
