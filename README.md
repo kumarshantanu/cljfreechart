@@ -5,7 +5,7 @@ Clojure wrapper for the [JFreeChart](http://www.jfree.org/jfreechart/) library.
 
 ## Installation
 
-Leiningen coordinates: `[cljfreechart "0.1.0"]`
+Leiningen coordinates: `[cljfreechart "0.2.0"]`
 
 
 ## Usage
