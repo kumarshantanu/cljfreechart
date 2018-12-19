@@ -5,7 +5,7 @@
     [cljfreechart.internal :as i])
   (:import
     [java.util Date]
-    [org.jfree.chart ChartFactory ChartUtilities JFreeChart]
+    [org.jfree.chart ChartFactory ChartUtils JFreeChart]
     [org.jfree.chart.plot    PlotOrientation]
     [org.jfree.data.category CategoryDataset DefaultCategoryDataset]
     [org.jfree.data.general  PieDataset DefaultPieDataset]
@@ -119,17 +119,12 @@
                         PlotOrientation/HORIZONTAL
                         PlotOrientation/VERTICAL)
                       legend? tooltips? false)
-      :bar-chart-3d (ChartFactory/createBarChart3D title category-title value-title dataset
-                      (if (= :horizontal orientation)
-                        PlotOrientation/HORIZONTAL
-                        PlotOrientation/VERTICAL)
-                      legend? tooltips? false)
       :line-chart (ChartFactory/createLineChart title category-title value-title dataset
                     (if (= :horizontal orientation)
                       PlotOrientation/HORIZONTAL
                       PlotOrientation/VERTICAL)
                     legend? tooltips? false)
-      (i/illegal-arg "Expected :chart-type option to be :bar-chart, :bar-chart-3d or :line-chart but found"
+      (i/illegal-arg "Expected :chart-type option to be :bar-chart or :line-chart but found"
         (pr-str chart-type)))))
 
 
@@ -137,12 +132,6 @@
   "Shortcut to make-category-chart (with {:chart-type :bar-chart} in options.)"
   ^JFreeChart [^CategoryDataset dataset title options]
   (make-category-chart dataset title (assoc options :chart-type :bar-chart)))
-
-
-(defn make-bar-chart-3d
-  "Shortcut to make-category-chart (with {:chart-type :bar-chart-3d} in options.)"
-  ^JFreeChart [^CategoryDataset dataset title options]
-  (make-category-chart dataset title (assoc options :chart-type :bar-chart-3d)))
 
 
 (defn make-line-chart
@@ -222,7 +211,7 @@
                                (pr-str (:image-format options))))}} options
         chart-file (io/as-file file-or-filename)]
     (condp = image-format
-      :jpeg (ChartUtilities/saveChartAsJPEG chart-file chart width height)
-      :jpg  (ChartUtilities/saveChartAsJPEG chart-file chart width height)
-      :png  (ChartUtilities/saveChartAsPNG  chart-file chart width height)
+      :jpeg (ChartUtils/saveChartAsJPEG chart-file chart width height)
+      :jpg  (ChartUtils/saveChartAsJPEG chart-file chart width height)
+      :png  (ChartUtils/saveChartAsPNG  chart-file chart width height)
       (i/illegal-arg "Expected image-format to be :png or :jpeg but found" (pr-str image-format)))))
