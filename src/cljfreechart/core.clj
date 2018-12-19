@@ -93,7 +93,7 @@
 
 (defn make-category-chart
   "Make line chart from specified arguments. Option keys (with meaning) are below:
-  :chart-type      :line-chart or :bar-chart (default) or :bar-chart-3d
+  :chart-type      :line-chart or :bar-chart (default)
   :category-title  category axis label (default \"Categories\")
   :value-title     value axis label (default \"Values\")
   :orientation     :horizontal or :vertical (default)
