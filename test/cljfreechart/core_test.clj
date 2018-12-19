@@ -30,11 +30,6 @@
                                 (c/make-category-dataset {:group-key :brand})
                                 (c/make-bar-chart "Car usage statistics" {:category-title "Category"
                                                                           :value-title "Score"})))))
-  (testing "Bar chart 3D"
-    (is (instance? JFreeChart (-> bar-data
-                                (c/make-category-dataset {:group-key :brand})
-                                (c/make-bar-chart-3d "Car usage statistics" {:category-title "Category"
-                                                                             :value-title "Score"})))))
   (testing "Line chart"
     (is (instance? JFreeChart (-> line-data
                                 (c/make-category-dataset {:group-key :group})
