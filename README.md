@@ -63,9 +63,19 @@ Leiningen coordinates: `[cljfreechart "0.2.0"]`
   time-series-chart "time-series-chart.png" {})
 ```
 
+### Troubleshooting
+
+#### Missing native libraries
+
+In case you run into issues related to missing native dependencies, try the following on Mac OSX:
+
+```shell
+brew install libpng freetype
+```
+
 ## License
 
-Copyright © 2015-2018 Shantanu Kumar
+Copyright © 2015-2019 Shantanu Kumar
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
